@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, View, StyleSheet, Switch, Text, TextInput, TouchableOpacity, Image } from 'react-native';
+import { ScrollView, View, StyleSheet, Switch, Text, TextInput, TouchableOpacity, Image, Animated } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -12,8 +12,11 @@ interface OrphanageDataRouteParams {
     longitude: number;
   }
 }
+ 
 
 export default function OrphanageData() {
+  
+
   const [name, setName] = useState('');
   const [about, setAbout] = useState('');
   const [instructions, setInstructions] = useState('');
@@ -78,7 +81,10 @@ export default function OrphanageData() {
     <ScrollView style={styles.container} contentContainerStyle={{ padding: 24 }}>
       <Text style={styles.title}>Dados</Text>
 
-      <Text style={styles.label}>Nome</Text>
+      <Text 
+        style={styles.label}
+        
+      >Nome</Text>
       <TextInput
         style={styles.input}
         value={name}

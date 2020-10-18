@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
 import { Image, View, ScrollView, Text, StyleSheet, Dimensions, Linking } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import { Feather, FontAwesome } from '@expo/vector-icons';
@@ -8,7 +7,8 @@ import { RectButton, TouchableOpacity } from 'react-native-gesture-handler';
 
 import { useRoute } from '@react-navigation/native';
 import api from '../services/api';
-
+import Animated from 'react-native-reanimated';
+import * as Animatable from 'react-native-animatable';
 
 interface OrphanageDetailsRouteParams {
   id: number;
@@ -30,6 +30,8 @@ interface Orphanage {
 }
 
 export default function OrphanageDetails() {
+  
+
   const route = useRoute();
   const [orphanage, setOrphanage] = useState<Orphanage>();
 
@@ -51,7 +53,7 @@ export default function OrphanageDetails() {
       </View>
     )
   }
-  //  else (
+  // (
   //   <ShimmerPlaceHolder
   //             style={{ 
   //               height: 240, 
@@ -81,7 +83,12 @@ export default function OrphanageDetails() {
       </View>
 
       <View style={styles.detailsContainer}>
-        <Text style={styles.title}>{orphanage.name}</Text>
+      <Animatable.Text 
+        style={styles.title}
+        animation = "fadeIn"
+        useNativeDriver
+        duration={3000}
+      >{orphanage.name}</Animatable.Text>
         <Text style={styles.description}>{orphanage.about}</Text>
       
         <View style={styles.mapContainer}>
