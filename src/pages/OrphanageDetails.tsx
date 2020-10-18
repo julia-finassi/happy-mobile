@@ -3,7 +3,6 @@ import ShimmerPlaceHolder from 'react-native-shimmer-placeholder';
 import { Image, View, ScrollView, Text, StyleSheet, Dimensions, Linking } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import { Feather, FontAwesome } from '@expo/vector-icons';
-
 import mapMarkerImg from '../images/map-marker.png';
 import { RectButton, TouchableOpacity } from 'react-native-gesture-handler';
 
